@@ -1,18 +1,18 @@
 ﻿CREATE TABLE Марки_автомобилей
 (
   Код_марки INT NOT NULL,
-  Наименование INT NOT NULL,
-  Технические_характеристики INT NOT NULL,
-  Описание INT NOT NULL,
+  Наименование VARCHAR NOT NULL,
+  Технические_характеристики VARCHAR NOT NULL,
+  Описание VARCHAR NOT NULL,
   PRIMARY KEY (Код_марки)
 );
 
 CREATE TABLE Виды_грузов
 (
   Код_вида_груза INT NOT NULL,
-  Наименование INT NOT NULL,
+  Наименование VARCHAR NOT NULL,
   Код_вида_автомобиля_для_транспортировки INT NOT NULL,
-  Описание INT NOT NULL,
+  Описание VARCHAR NOT NULL,
   PRIMARY KEY (Код_вида_груза),
   UNIQUE (Код_вида_автомобиля_для_транспортировки)
 );
@@ -20,26 +20,26 @@ CREATE TABLE Виды_грузов
 CREATE TABLE Должности
 (
   Код_должности INT NOT NULL,
-  Наименование_должности INT NOT NULL,
+  Наименование_должности VARCHAR NOT NULL,
   Оклад INT NOT NULL,
-  Обязанности INT NOT NULL,
-  Требования INT NOT NULL,
+  Обязанности VARCHAR NOT NULL,
+  Требования VARCHAR NOT NULL,
   PRIMARY KEY (Код_должности)
 );
 
 CREATE TABLE Рейсы
 (
   Код_автомобиля INT NOT NULL,
-  Откуда INT NOT NULL,
-  Дата_прибытия INT NOT NULL,
+  Откуда VARCHAR NOT NULL,
+  Дата_прибытия DATE NOT NULL,
   Код_груза INT NOT NULL,
   Цена INT NOT NULL,
-  Отметка_об_оплате INT NOT NULL,
-  Дата_отправления INT NOT NULL,
-  Отметка_о_возвращении INT NOT NULL,
+  Отметка_об_оплате VARCHAR NOT NULL,
+  Дата_отправления DATE NOT NULL,
+  Отметка_о_возвращении VARCHAR NOT NULL,
   Код_сотрудника INT NOT NULL,
-  Заказчик INT NOT NULL,
-  Куда INT NOT NULL,
+  Заказчик VARCHAR NOT NULL,
+  Куда VARCHAR NOT NULL,
   PRIMARY KEY (Код_автомобиля),
   UNIQUE (Код_груза),
   UNIQUE (Код_сотрудника)
@@ -51,9 +51,9 @@ CREATE TABLE Автомобили
   Регистрационный_номер INT NOT NULL,
   Номер_кузова_ INT NOT NULL,
   Номер_двигателя INT NOT NULL,
-  Год_выпуска INT NOT NULL,
+  Год_выпуска DATE NOT NULL,
   Код_сотрудника_водителя INT NOT NULL,
-  Дата_последнего_ПО INT NOT NULL,
+  Дата_последнего_ПО DATE NOT NULL,
   Код_сотрудника_механика INT NOT NULL,
   Код_марки INT NOT NULL,
   Код_вида_автомобиля INT NOT NULL,
@@ -67,28 +67,28 @@ CREATE TABLE Автомобили
 CREATE TABLE Грузы
 (
   Код_груза INT NOT NULL,
-  Наименование INT NOT NULL,
+  Наименование VARCHAR NOT NULL,
   Код_вида_груза INT NOT NULL,
-  Срок_годности INT NOT NULL,
-  Особенности INT NOT NULL,
+  Срок_годности DATE NOT NULL,
+  Особенности VARCHAR NOT NULL,
   PRIMARY KEY (Код_груза),
   UNIQUE (Код_вида_груза)
 );
 
 CREATE TABLE Виды_автомобилей
 (
-  Описание INT NOT NULL,
-  Наименование INT NOT NULL,
+  Описание VARCHAR NOT NULL,
+  Наименование VARCHAR NOT NULL,
   Код_вида_автомобиля INT NOT NULL,
   PRIMARY KEY (Код_вида_автомобиля)
 );
 
 CREATE TABLE Сотрудники
 (
-  ФИО INT NOT NULL,
+  ФИО VARCHAR NOT NULL,
   Возраст INT NOT NULL,
-  Пол INT NOT NULL,
-  Адрес INT NOT NULL,
+  Пол VARCHAR NOT NULL,
+  Адрес VARCHAR NOT NULL,
   Телефон INT NOT NULL,
   Паспортные INT NOT NULL,
   Код_должности INT NOT NULL,
